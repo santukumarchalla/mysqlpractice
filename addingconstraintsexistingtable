@@ -1,0 +1,34 @@
+create table employees (eid int, ename varchar(40), esal int, egmail varchar(50), eage int);
+
+alter table employees add primary key(eid);
+
+desc employees;
+
+alter table employees modify column eage int not null;
+
+desc employees;
+
+alter table employees add constraint unique(egmail);
+
+desc employees;
+
+alter table employees add constraint check(eage>18);
+
+desc employees;
+
+show create table employees;
+
+alter table employees modify column esal int default(10000);
+
+desc employees;
+
+alter table employees modify column eid int auto_increment;
+
+desc employees;
+
+
+create table company(cname varchar(50), eid int);
+
+alter table company add foreign key(eid) references employees(eid);
+
+desc company;
